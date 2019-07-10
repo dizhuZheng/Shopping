@@ -4,5 +4,5 @@ from .views import index
 
 urlpatterns = [
     #Home page
-    url(r'^home$', index, name='index'),
+    url(r'^$', index, name='index'),
 ]
