@@ -2,6 +2,7 @@
 {% load bootstrap4 %}
 {% load staticfiles %}
 {% include 'recipes/nav.html' %}
+{% block content %}
 <div id="slidershow" class="carousel slide" data-ride="carousel" data-interval = 2000 data-pause = "hover" data-wrap="true"
   style="margin-top: 2rem; width: 70%;height: 80%; margin-left:auto; margin-right:auto;">
     <!-- 设置图片轮播的顺序 -->
@@ -32,3 +33,5 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
 </div>
+{% endblock content %}
+{% block right %}{% endblock right %}

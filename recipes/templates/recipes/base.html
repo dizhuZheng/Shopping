@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title %}My recipe{% endblock %} -- My recipes</title>
+    <title>{% block title %}{% endblock title%} My recipe</title>
   </head>
   <body>
-    {% include 'recipes/nav.html' %}
-    {% block content %}
-    {% endblock %}
-    {% include 'recipes/bottom.html' %}
+    top--{{logo}}
+    {% block nav %}{% endblock nav %}
+    <hr/>
+    {% block right %}{% endblock  right%}
+    {% block content %}{% endblock content%}
   </body>
 </html>
