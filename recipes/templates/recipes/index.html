@@ -1,10 +1,9 @@
-{% extends 'recipes/base.html'}
+{% extends 'recipes/base.html'%}
 {% load bootstrap4 %}
 {% load staticfiles %}
-{% include 'recipes/nav.html' %}
 {% block content %}
 <div id="slidershow" class="carousel slide" data-ride="carousel" data-interval = 2000 data-pause = "hover" data-wrap="true"
-  style="margin-top: 2rem; width: 70%;height: 80%; margin-left:auto; margin-right:auto;">
+  style="margin-top: -5rem; width: 70%;height: 80%; margin-left:auto; margin-right:auto;">
     <!-- 设置图片轮播的顺序 -->
     <ol class="carousel-indicators">
     <li class="active" data-target="#slidershow" data-slide-to="0" ></li>
@@ -34,4 +33,3 @@
     </a>
 </div>
 {% endblock content %}
-{% block right %}{% endblock right %}

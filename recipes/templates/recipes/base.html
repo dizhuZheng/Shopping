@@ -2,12 +2,31 @@
 <html>
   <head>
     <title>{% block title %}{% endblock title%} My recipe</title>
+    <style>
+        h1 {
+          text-align: center;
+        }
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: black;
+          color: white;
+          text-align: center;
+        }
+    </style>
   </head>
   <body>
-    top--{{logo}}
-    {% block nav %}{% endblock nav %}
-    <hr/>
-    {% block right %}{% endblock  right%}
-    {% block content %}{% endblock content%}
+    <h1>{{logo}}</h1>
+    {% include 'recipes/nav.html' %}
+    {% block content %}
+    {% endblock content%}
+    {% block right %}{% endblock right %}
+    {% block footer %}
+    <div class="footer">
+      <p>Footer</p>
+    </div>
+    {% endblock footer %}
   </body>
 </html>
