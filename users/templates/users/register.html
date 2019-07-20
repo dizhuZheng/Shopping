@@ -1,4 +1,4 @@
-{% extends "recipes/base.html" %}
+{% extends "recipes/nav_base.html" %}
 {% block content %}
 <div class="a">
   <form method="post" action="{% url 'users:register' %}">
@@ -8,5 +8,4 @@
     <input type="hidden" name="next" value="{% url 'recipes:index' %}" />
   </form>
 </div>
-
 {% endblock content %}

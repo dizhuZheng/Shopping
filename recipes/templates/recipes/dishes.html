@@ -1,0 +1,10 @@
+{% extends 'recipes/base.html' %}
+{% block content %}
+<ul>
+    {% for dish in dishes %}
+        <li>{{ dish }}</li>
+    {% empty %}
+        <li>No dishes have been added yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

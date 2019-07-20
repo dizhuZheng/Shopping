@@ -1,14 +1,14 @@
-{% extends 'recipes/base.html' %}
+{% extends "recipes/nav_base.html" %}
 {% block content %}
-  <div class="a">
-      {% if form.errors %}
-      <div>Your username and password didn't match. Please try again.</div>
-      {% endif %}
-      <form method='post' action="{% url 'users:login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">log in</button>
-        <input type="hidden" name="next" value="{% url 'recipes:index' %}" />
-      </form>
-  </div>
+<div class="a">
+  {% if form.errors %}
+  <div>Your username and password didn't match. Please try again.</div>
+  {% endif %}
+  <form method='post' action="{% url 'users:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">log in</button>
+    <input type="hidden" name="next" value="{% url 'recipes:index' %}" />
+  </form>
+</div>
 {% endblock content %}
