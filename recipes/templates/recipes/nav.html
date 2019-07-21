@@ -16,7 +16,7 @@
       <a class="navbar-brand">My Recipe</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="{% url 'recipes:index' %}">Home</a></li>
       <li><a href="{% url 'recipes:dishes' %}">Menu</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Different People <span class="caret"></span></a>
         <ul class="dropdown-menu">
