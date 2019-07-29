@@ -34,7 +34,7 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         {% if user.is_authenticated %}
-        <span class="b">Hello, {{ user.username }}.</span>
+        <span style="color:aquamarine;">Hello, {{ user.username }}.</span>
         &nbsp;&nbsp;
         <a href="{% url 'users:logout' %}">log out</a>
         {% else %}
