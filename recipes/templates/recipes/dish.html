@@ -3,11 +3,22 @@
 {% block content %}
   <p>&nbsp;&nbsp;&nbsp;Dish: {{ dish }}</p>
   <br>&nbsp;&nbsp;&nbsp;
-  <p><h4 class="c">Materials</h4></p>
-  <textarea class="f">Some text...</textarea>
-  <button type="button" onclick="alert('Hello world!')">Add</button>
-  <p><h4 class="d">Steps</h4></p>
-  <textarea class="e">Some text...</textarea>
-  <button type="button" onclick="alert('Hello world!')">Add</button>
-  <ul>
+  <div>
+  <form action="/action_page.php">
+    <div class="form-groupc">
+      <label for="comment">Materials</label>
+      <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+  </form>
+  </div>
+  <div>
+    <form action="/action_page.php">
+      <div class="form-groupc">
+        <label for="comment">Steps</label>
+        <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+      </div>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+    </div>
 {% endblock content %}
