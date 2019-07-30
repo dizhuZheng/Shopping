@@ -1,10 +1,38 @@
-{% extends "recipes/base.html" %}
+{% extends 'recipes/base.html' %}
 
 {% block content %}
-  <p>Add a new topic:</p>
-  <form action="{% url 'recipes:new_recipe' %}" method='post'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button name='submit'>add recipe</button>
-  </form>
+    <form method="POST">
+      {% csrf_token %}
+      Dish's name: <input type="text" name="DishName">
+      <input type="submit" value="Submit">
+      <br><br>
+        <div class="a">
+        <label for="comment">Materials</label>
+        <div class="form-groupc">
+          <textarea rows="15" cols="50" id="comment" name="text"></textarea>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+  <div class="b">
+    <form method="POST">
+      {% csrf_token %}
+      <label for="comment">Steps</label>
+      <div class="form-groupc">
+        <textarea rows="15" cols="50" id="comment" name="text"></textarea>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+  <div class="c">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="img">
+      <br>
+      <button type="submit" class="btn btn-info">Upload</button>
+    </form>
+    <p>{{ sentence }}</p>
+  </div>
 {% endblock content %}

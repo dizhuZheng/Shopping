@@ -1,7 +1,8 @@
 from django import forms
-from recipes.models import Image
+from .models import Dish
 
-class ImageForm(forms.ModelForm):
+class DishForm(forms.ModelForm):
     class Meta:
-        model = Image
-        fields = ('name', 'img', )
+        model = Dish
+        fields = ['text']
+        labels = {'text':''}
