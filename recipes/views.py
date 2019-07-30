@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 logo = 'Welcome to my Recipe'
+sentence = 'picture uploaded !'
+
 def index(request):
     """The home page for recipes"""
     return render(request, 'recipes/index.html', {'logo': logo})
@@ -30,5 +32,5 @@ def dish(request, dish_id):
             name = request.FILES.get('img').name
         )
         new_img.save()
-        content['img'] = new_img
+        content['sentence']= sentence
     return render(request, 'recipes/dish.html', content)
