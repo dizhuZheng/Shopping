@@ -22,3 +22,9 @@ class Entry(models.Model):
     def __str__(self):
         """return a string representation of the model"""
         return self.text[:50] + "..."
+
+
+class IMG(models.Model):
+    """user can add pic to each dish"""
+    img = models.ImageField(upload_to='img')
+    name = models.CharField(max_length=20)

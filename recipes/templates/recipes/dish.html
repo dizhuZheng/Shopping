@@ -24,4 +24,12 @@
       <button type="submit" class="btn btn-info">Submit</button>
     </form>
   </div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="img">
+    <button type="submit">上传</button>
+  </form>
+  {% for img in imgs %}
+    <img src="{{ img.img.url }}" />
+  {% endfor %}
 {% endblock content %}
