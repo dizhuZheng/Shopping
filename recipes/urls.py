@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^dishes/(?P<dish_id>\d+)/$', dish, name='dish'),
     #page for adding a new topic
     url(r'^new_dish/$', new_dish, name='new_dish'),
+    # url(r'^authors/$')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

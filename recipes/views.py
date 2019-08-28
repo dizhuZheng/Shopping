@@ -14,7 +14,6 @@ def index(request):
     return render(request, 'recipes/index.html', {'logo': logo})
 
 
-@login_required
 def dishes(request):
     """show all dishes"""
     dishes = Dish.objects.all()

@@ -1,6 +1,7 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
-from .views import index
+from .views import index, dishes, dish
+from .models import Dish, Entry
 
 # Create your tests here.
 class HomeTests(TestCase):

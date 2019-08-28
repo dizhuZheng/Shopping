@@ -4,3 +4,5 @@
 __pycache__
 db.sqlite3
 my_recipe/__pycache__/settings.cpython-37.pyc
+*.pyc
+__pycache__
