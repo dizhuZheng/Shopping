@@ -29,21 +29,21 @@
       <li><a href="#">Shops</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form navbar-left" action="/action_page.php">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-          &nbsp;&nbsp;&nbsp;
-        {% if user.is_authenticated %}
-        <span style="color:aquamarine;">Hello, {{ user.username }}.</span>
-        &nbsp;&nbsp;
-        <a href="{% url 'users:logout' %}">log out</a>
-        {% else %}
-        <a href="{% url 'users:register' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Sign Up</a>
-        &nbsp;&nbsp;
-        <a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> log in</a>
-        {% endif %}
+      <form class="navbar-form navbar-left" action="/action_page.php">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      &nbsp;&nbsp;&nbsp;
+      {% if user.is_authenticated %}
+      <span style="color:aquamarine;">Hello, {{ user.username }}.</span>
+      &nbsp;&nbsp;
+      <a type="button" class="btn btn-danger" href="{% url 'users:logout' %}">log out</a>
+      {% else %}
+      <a href="{% url 'users:register' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Sign Up</a>
+      &nbsp;&nbsp;
+      <a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> log in</a>
+      {% endif %}
       </form>
     </ul>
   </div>
