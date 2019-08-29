@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.shortcuts import render
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.auth.decorators import login_required
+from .form import CustomUserCreationForm
 
 # Create your views here.
 def logout_view(request):
@@ -15,10 +16,10 @@ def logout_view(request):
 def register(request):
     """register new user"""
     if request.method != 'POST':
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     else:
         #process completed form.
-        form = UserCreationForm(data=request.POST)
+        form = CustomUserCreationForm(data=request.POST)
 
         if form.is_valid():
             new_user = form.save()
