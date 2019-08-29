@@ -16,7 +16,7 @@
       <a class="navbar-brand" href="{% url 'recipes:index' %}">My Recipe</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="{% url 'recipes:index' %}">Home</a></li>
+      <li><a class="active" href="{% url 'recipes:index' %}">Home</a></li>
       <li><a href="{% url 'recipes:dishes' %}">Menu</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Different People <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -38,11 +38,11 @@
       {% if user.is_authenticated %}
       <span style="color:aquamarine;">Hello, {{ user.username }}.</span>
       &nbsp;&nbsp;
-      <a type="button" class="btn btn-danger" href="{% url 'users:logout' %}">log out</a>
+      <a type="button" class="btn btn-danger" href="{% url 'users:logout' %}">Log out</a>
       {% else %}
       <a href="{% url 'users:register' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Sign Up</a>
       &nbsp;&nbsp;
-      <a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> log in</a>
+      <a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Log in</a>
       {% endif %}
       </form>
     </ul>

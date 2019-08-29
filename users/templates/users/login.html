@@ -7,8 +7,9 @@
   <form method='post' action="{% url 'users:login' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button name="submit">log in</button>
-    <input type="hidden" name="next" value="{% url 'recipes:index' %}" />
+    <button name="submit" class="btn btn-primary">Log in</button>
+    <input type="hidden" name="next" value="{% url 'recipes:index' %}"  />
   </form>
+  <div style="padding:20px;"><a href="{% url 'users:password_reset_form' %}">Forgot password ?</a></div>
 </div>
 {% endblock content %}
