@@ -15,12 +15,11 @@ urlpatterns = [
     url(r'^logout/$', views.logout_view, name='logout'),
 
     #reset password
-    url(r'^password_reset/$', PasswordResetView.as_view(template_name='users/password_reset_form.html', name='password_reset_form'),
+    url(r'^password_reset/$', PasswordResetView.as_view(template_name='users/password_reset_form.html'), name='password_reset_form'),
 
     #reset done
     url(r'^password_reset_done/$', PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'),name='password_reset_done'),
 
     url(r'^password_reset_confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        PasswordResetConfirmView.as_view(),
-        name='password_reset_confirm'),
+        PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'),name='password_reset_confirm')
 ]
