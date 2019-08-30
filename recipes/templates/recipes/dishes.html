@@ -1,13 +1,33 @@
 {% extends 'recipes/base.html' %}
 {% block content %}
-<h1>Menu</h1>
-<ul>
-    {% for dish in dishes %}
-        <li>
-            <a href="{% url 'recipes:dish' dish.id %}">{{ dish }}</a>
-        </li>
-    {% empty %}
-        <li>No dishes have been added yet.</li>
-    {% endfor %}
-</ul>
+<h1>Categories</h1>
+{% load static %}
+<div class="contentimg">
+    <span class="img_content">
+        <a href="" target="view_frame">
+            <img src="{% static "images/soup.jpg" %}" alt="soup">
+    </span>
+    <span class="img_content">
+        <a href="" target="view_frame">
+            <img src="{% static "images/drinks.jpg" %}" alt="drinks">
+    </span>
+    <span class="img_content">
+        <a href="" target="view_frame">
+            <img src="{% static "images/deseart.jpg" %}" alt="drinks">
+    </span>
+    <span class="img_content">
+        <a href="" target="view_frame">
+            <img src="{% static "images/5.jpg" %}" alt="">
+    </span>
+</div>
+<script>
+$(function(){
+    $(".contentimg .img_content").mouseover(function(){
+      $(".img_content .mask").show();
+  });
+    $(".contentimg .img_content").mouseout(function(){
+    $(".img_content .mask").hide();
+  });
+  });
+</script>
 {% endblock content %}

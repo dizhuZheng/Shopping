@@ -25,6 +25,6 @@ class Entry(models.Model):
 
 
 class IMG(models.Model):
-    """user can add pic to each dish"""
+    """users can add pic to each dish"""
     img = models.ImageField(upload_to='img')
     name = models.CharField(max_length=20)
