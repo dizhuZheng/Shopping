@@ -5,10 +5,10 @@ import re
 
 class CustomUserCreationForm(forms.Form):
     username = forms.CharField(label="Enter Username", min_length=5, max_length=41, help_text='User name must contain chracters or letters, at least 5, at most 41 characters')
-    email = forms.EmailField(label="Enter email", widget=forms.EmailInput)
-    password1 = forms.CharField(label="Enter Password", help_text='Passwords must contain at least 6, at most 18 characters, including uppercase, lowercase letters and numbers',
-    min_length=6, max_length= 18, widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Confirm Password", min_length=6, max_length= 18, widget=forms.PasswordInput)
+    email = forms.EmailField(label="Enter email", widget=forms.EmailInput, required = True)
+    password1 = forms.CharField(label="Enter Password", help_text='Passwords must contain at least 6, must include uppercase, lowercase letters and numbers',
+    min_length=6, widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Confirm Password", min_length=6, widget=forms.PasswordInput)
 
     def clean_username(self):
         username = self.cleaned_data['username'].lower()

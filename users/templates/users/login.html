@@ -1,13 +1,16 @@
 {% extends "recipes/nav_base.html" %}
+{% load bootstrap4 %}
 {% block content %}
 <div class="a">
   {% if form.errors %}
   <div>Your username and password didn't match. Please try again.</div>
   {% endif %}
-  <form method='post' action="{% url 'users:login' %}">
+  <form method='post' action="{% url 'users:login' %}" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit" class="btn btn-primary">Log in</button>
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">Log in</button>
+    {% endbuttons %}
     <input type="hidden" name="next" value="{% url 'recipes:index' %}"  />
   </form>
   <div style="padding:20px;"><a href="{% url 'users:password_reset_form' %}">Forgot password ?</a></div>

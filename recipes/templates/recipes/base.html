@@ -3,7 +3,9 @@
   <head>
     <title>{% block title %}{% endblock title%} My recipe</title>
     <link rel="luck.ico" href="recipes/static/images/luck.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+    crossorigin="anonymous">
     <style>
         h1 {
           text-align: center;
@@ -18,15 +20,15 @@
           text-align: center;
         }
         div.a{
-          position: fixed;
+          position: relative;
           left:50px;
-          top: 30%;
-          width: 50%;
+          top: 20px;;
+          width: 30%;
         }
         div.b{
           position: fixed;
           right:80px;
-          top: 30%;
+          top: 20px;
           width: 50%;
         }
         div.c{
@@ -43,27 +45,15 @@
           display: block;
           margin-left: auto;
         }
-        .contentimg img{
-          width: 300px;
-          height: 300px;
-          margin: 10px auto;
-          display: inline;
+        .flex-container{
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-evenly;
         }
-        .contentimg .img_content{
-            position: relative;
-            padding: 10px;
+        .flex-container .flex-item{
+          margin: auto;
+          padding:10px;
         }
-        /* .contentimg .img_content .mask{
-            position: absolute;
-            top:-36px;
-            width: 235px;
-            height: 30px;
-            background: rgba(0, 0, 0, 0.53);
-            color:#fff;
-            line-height: 100px;
-            text-align: center;
-            display: none;
-        } */
     </style>
   </head>
   <body>

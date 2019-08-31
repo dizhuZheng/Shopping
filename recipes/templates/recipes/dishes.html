@@ -2,32 +2,25 @@
 {% block content %}
 <h1>Categories</h1>
 {% load static %}
-<div class="contentimg">
-    <span class="img_content">
-        <a href="" target="view_frame">
-            <img src="{% static "images/soup.jpg" %}" alt="soup">
-    </span>
-    <span class="img_content">
-        <a href="" target="view_frame">
-            <img src="{% static "images/drinks.jpg" %}" alt="drinks">
-    </span>
-    <span class="img_content">
-        <a href="" target="view_frame">
-            <img src="{% static "images/deseart.jpg" %}" alt="drinks">
-    </span>
-    <span class="img_content">
-        <a href="" target="view_frame">
-            <img src="{% static "images/5.jpg" %}" alt="">
-    </span>
+<div class="flex-container">
+    <div class="flex-item">
+        <img src="{% static "images/raphael-nogueira-63mHpYEyjCA-unsplash (2).jpg" %} style="width:120%" alt="drinks">
+    </div>
+    <div class="flex-item">
+        <img src="{% static "images/taylor-kiser-6RJct18G_3I-unsplash (1).jpg" %}" alt="">
+    </div>
+    <div class="flex-item">
+        <img src="{% static "images/adrien-sala-qvIrI4ueqzY-unsplash (1).jpg" %}" alt="">
+    </div>
 </div>
-<script>
+<!-- <script>
 $(function(){
-    $(".contentimg .img_content").mouseover(function(){
-      $(".img_content .mask").show();
+    $(".contentimg .flex-item").mouseover(function(){
+      $(".flex-item .mask").show();
   });
-    $(".contentimg .img_content").mouseout(function(){
-    $(".img_content .mask").hide();
+    $(".contentimg .flex-item").mouseout(function(){
+    $(".flex-item .mask").hide();
   });
   });
-</script>
+</script> -->
 {% endblock content %}
