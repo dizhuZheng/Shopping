@@ -29,9 +29,13 @@ class CustomUserCreationForm(forms.Form):
 
     def clean_password1(self):
         password1 = self.cleaned_data.get('password1')
-        r = re.search('^(?![a-zA-Z]+$)(?![0-9]+$)[0-9A-Za-z]\w{5,17}$', password1)
-        if r is None:
-            raise forms.ValidationError('Password\'s format is wrong !')
+        # r = re.search('^(?![a-zA-Z]+$)(?![0-9]+$)[0-9A-Za-z]\w{5,17}$', password1)
+        m = re.search('^+?[a-zA-Z]*$)', password1)
+        b = re.search('^+?[0-9]*$', password1)
+        if m is not None:
+            raise forms.ValidationError('Password shouldn\'t only have characters !')
+        if b is not None:
+            raise forms.ValidationError('Password shouldn\'t only have numbers !')
         return password1
 
     def clean_password2(self):

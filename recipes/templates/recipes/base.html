@@ -19,40 +19,30 @@
           color: white;
           text-align: center;
         }
-        div.a{
-          position: relative;
-          left:50px;
-          top: 20px;;
-          width: 30%;
-        }
-        div.b{
-          position: fixed;
-          right:80px;
-          top: 20px;
-          width: 50%;
-        }
-        div.c{
-          position: fixed;
-          right: 0;
-          top: 30%;
-        }
-        div.d{
-          position: fixed;
-          right: 30px;
-          bottom: 30%;
-        }
         img {
           display: block;
           margin-left: auto;
+          width: 330px;
+          height:300px;
         }
         .flex-container{
           display: flex;
-          flex-flow: row nowrap;
-          justify-content: space-evenly;
+          flex-flow: row wrap;
+          justify-content: space-around;
         }
         .flex-container .flex-item{
-          margin: auto;
-          padding:10px;
+          margin-bottom: 10px;
+        }
+        .flex-container .flex-item p{
+          width:auto;
+          height:30px;
+          text-align: center;
+          background-color:black;
+          color:aliceblue;
+          padding: 5px;
+        }
+        #last{
+          margin-bottom: 40px;
         }
     </style>
   </head>
