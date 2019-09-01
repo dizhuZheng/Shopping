@@ -3,27 +3,26 @@
 {% load staticfiles %}
 {% block content %}
 <div id="slidershow" class="carousel slide" data-ride="carousel" data-interval = 3000 data-pause = "hover" data-wrap="true"
-  style="margin-top: -5rem; width: 70%;height: 80%; margin-left:auto; margin-right:auto;">
-    <!-- 设置图片轮播的顺序 -->
+  style="margin-top: -2rem; width: 70%;height: 80%; margin-left:auto; margin-right:auto;" style="display: block">
+    <!-- sequence for pictures -->
     <ol class="carousel-indicators">
-    <li class="active" data-target="#slidershow" data-slide-to="0" ></li>
-    <li data-target="#slidershow" data-slide-to="1"></li>
-    <li data-target="#slidershow" data-slide-to="2"></li>
-    <li data-target="#slidershow" data-slide-to="3"></li>
+      <li class="active" data-target="#slidershow" data-slide-to="0" ></li>
+      <li data-target="#slidershow" data-slide-to="1"></li>
+      <li data-target="#slidershow" data-slide-to="2"></li>
+      <li data-target="#slidershow" data-slide-to="3"></li>
     </ol>
-    <!--设置轮播的图片-->
     <div class="carousel-inner">
     <div class="item active">
-      <a href="##"><img src="{% static "images/1.jpg" %}" alt=""/></a>
+      <a href="##"><img src='{% static "images/1.jpg" %}' alt=""/></a>
     </div>
     <div class="item">
-      <a href="##"><img src="{% static "images/2.jpg" %}" alt=""/></a>
+      <a href="##"><img src="{% static 'images/2.jpg' %}" alt=""/></a>
     </div>
     <div class="item">
-      <a href="##"><img src="{% static "images/3.jpg" %}" alt=""/></a>
+      <a href="##"><img src="{% static 'images/3.jpg' %}" alt=""/></a>
     </div>
     <div class="item">
-      <a href="##"><img src="{% static "images/4.jpg" %}" alt=""/></a>
+      <a href="##"><img src="{% static 'images/4.jpg' %}" alt=""/></a>
     </div>
     <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev" >
     <span class="glyphicon glyphicon-chevron-left"></span>

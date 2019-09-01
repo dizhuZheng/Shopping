@@ -8,6 +8,9 @@
   <form method='post' action="{% url 'users:login' %}" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
+    <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
     {% buttons %}
       <button name="submit" class="btn btn-primary">Log in</button>
     {% endbuttons %}

@@ -16,35 +16,34 @@
       <a class="navbar-brand" href="{% url 'recipes:index' %}">My Recipe</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a class="active" href="{% url 'recipes:index' %}">Home</a></li>
-      <li><a href="{% url 'recipes:dishes' %}">Menu</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Different People <span class="caret"></span></a>
+      <li class="active"><a href="{% url 'recipes:dishes' %}">Categories</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Groups<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">&nbsp; Beauty and young</a></li>
           <li><a href="#">&nbsp;Old People</a></li>
           <li><a href="#">&nbsp;Kids</a></li>
         </ul>
       </li>
-      <li><a href="#">Health</a></li>
-      <li><a href="#">Shops</a></li>
+      <li><a href="#">Popular dishes</a></li>
+      <li><a href="#">Announcement</a></li>
     </ul>
+    <form class="navbar-form navbar-left" action="">
+      <div class="form-group">
+        <input type="text" class="form-control" style="width: 450px;" placeholder="Search" name="search">
+      </div>
+      <button class="btn btn-default" style="display:inline" type="submit" >
+          <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </form>
     <ul class="nav navbar-nav navbar-right">
-      <form class="navbar-form navbar-left" action="/action_page.php">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      &nbsp;&nbsp;&nbsp;
-      {% if user.is_authenticated %}
-      <span style="color:aquamarine;">Hello, {{ user.username }}.</span>
-      &nbsp;&nbsp;
-      <a type="button" class="btn btn-danger" href="{% url 'users:logout' %}">Log out</a>
-      {% else %}
-      <a href="{% url 'users:register' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Sign Up</a>
-      &nbsp;&nbsp;
-      <a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Log in</a>
-      {% endif %}
-      </form>
+        {% if user.is_authenticated %}
+        <span style="color:aquamarine;">Hello, {{ user.username }}.</span>
+        <a type="button" class="btn btn-danger" href="{% url 'users:logout' %}">Log out</a>
+        {% else %}
+        <li><a href="{% url 'users:register' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Sign Up</a></li>
+        &nbsp;&nbsp;
+        <li><a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Log in</a></li>
+        {% endif %}
     </ul>
   </div>
 </nav>
