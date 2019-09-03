@@ -1,4 +1,5 @@
-{% extends "recipes/nav_base.html" %}
+{% extends "recipes/nav.html" %}
+{% include "recipes/base.html" %}
 {% load bootstrap4 %}
 {% block content %}
 <div>
@@ -8,7 +9,7 @@
     {% buttons %}
     <button name="submit" class="btn btn-primary">Register</button>
     {% endbuttons %}
-    <input type="hidden" name="submit" value="{% url 'recipes:index' %}" />
+    <input type="hidden" name="submit" value="{% url 'users:login' %}" />
   </form>
 </div>
 {% endblock content %}

@@ -1,4 +1,4 @@
-{% extends "recipes/nav_base.html" %}
+{% extends "recipes/nav.html" %}
 {% load bootstrap4 %}
 {% block content %}
 <div>
@@ -14,8 +14,8 @@
     {% buttons %}
       <button name="submit" class="btn btn-primary">Log in</button>
     {% endbuttons %}
-    <input type="hidden" name="next" value="{% url 'recipes:index' %}"  />
+    <input type="hidden" name="next" value="{% url 'users:personal' %}"  />
   </form>
-  <div style="padding:20px;"><a href="{% url 'users:password_reset_form' %}">Forgot password ?</a></div>
+  <div style="margin-left:80px; padding-top:0;"><a href="{% url 'users:password_reset_form' %}">Forgot password ?</a></div>
 </div>
 {% endblock content %}

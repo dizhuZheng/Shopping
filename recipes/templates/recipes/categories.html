@@ -1,7 +1,8 @@
-{% extends 'recipes/base.html' %}
+{% extends 'recipes/nav.html' %}
+{% include 'recipes/base.html' %}
+{% load static %}
 {% block content %}
 <h1>Categories</h1>
-{% load static %}
 <div class="flex-container">
     <div class="flex-item">
         <img src="{% static 'images/ivan-timov-2L8VzgYikXE-unsplash.jpg'%} alt='breakfast'">

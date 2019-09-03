@@ -13,6 +13,11 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('recipes:index'))
 
+@login_required
+def personal(request):
+    # context = {'username': username}
+    return render(request, 'users/personal_space.html')
+
 def register(request):
     """register new user"""
     if request.method != 'POST':

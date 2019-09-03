@@ -14,6 +14,8 @@ urlpatterns = [
     #logout page
     url(r'^logout/$', views.logout_view, name='logout'),
 
+    url(r'^personal/$', views.personal, name='personal'),
+
     #reset password
     url(r'^password_reset/$', PasswordResetView.as_view(template_name='users/password_reset_form.html'), name='password_reset_form'),
 

@@ -1,24 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>{% block title %}{% endblock title%} My recipe</title>
     <link rel="luck.ico" href="recipes/static/images/luck.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
     crossorigin="anonymous">
     <style>
-        h1 {
-          text-align: center;
-        }
-        .footer {
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          background-color: black;
-          color: white;
-          text-align: center;
-        }
         img {
           display: block;
           margin-left: auto;
@@ -31,12 +18,10 @@
         .flex-container .flex-item{
           margin-bottom: 10px;
         }
-
         .flex-container .flex-item img{
           width: 330px;
           height:300px;
         }
-
         .flex-container .flex-item p{
           width:auto;
           height:30px;
@@ -48,17 +33,12 @@
         #last{
           margin-bottom: 40px;
         }
+        form{
+          width:50%;
+          height: 50%;
+          margin-left: 80px;
+          margin-top: 30px;
+        }
     </style>
   </head>
-  <body>
-    <h1>{{logo}}</h1>
-    {% include 'recipes/nav.html' %}
-    {% block content %}
-    {% endblock content%}
-    {% block footer %}
-    <div class="footer">
-      <p>Footer</p>
-    </div>
-    {% endblock footer %}
-  </body>
 </html>
