@@ -1,7 +1,7 @@
-{% extends "recipes/nav.html" %}
-{% include "recipes/base.html" %}
+{% extends "recipes/layout.html" %}
 {% load bootstrap4 %}
 {% block content %}
+{% include 'recipes/nav.html' %}
 <div>
   <form method="post" action="{% url 'users:register' %}" class="form">
     {% csrf_token %}

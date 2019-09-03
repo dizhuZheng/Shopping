@@ -15,11 +15,11 @@ def index(request):
     return render(request, 'recipes/index.html', {'logo': logo})
 
 
-def dishes(request):
+def categories(request):
     """show all dishes"""
-    dishes = Dish.objects.all()
-    context = {'dishes': dishes}
-    return render(request, 'recipes/dishes.html', context)
+    # dishes = Dish.objects.all()
+    # context = {'dishes': dishes}
+    return render(request, 'recipes/categories.html')
 
 
 @login_required

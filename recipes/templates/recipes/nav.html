@@ -1,69 +1,44 @@
-{% include 'recipes/base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% block title %}{% endblock %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  </head>
-  <style>
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    text-align: center;
-  }
-  </style>
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <a class="navbar-brand" href="{% url 'recipes:index' %}">My Recipe</a>
-          <li class="active"><a href="{% url 'recipes:dishes' %}">Categories</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Groups<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">&nbsp; Beauty and young</a></li>
-              <li><a href="#">&nbsp;Old People</a></li>
-              <li><a href="#">&nbsp;Kids</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Popular dishes</a></li>
-          <li><a href="#">Announcement</a></li>
+{% extends 'recipes/layout.html' %}
+{% block content %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <a class="navbar-brand" href="{% url 'recipes:index' %}">My Recipe</a>
+      <li class="active"><a href="{% url 'recipes:dishes' %}">Categories</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Groups<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">&nbsp; Beauty and young</a></li>
+          <li><a href="#">&nbsp;Old People</a></li>
+          <li><a href="#">&nbsp;Kids</a></li>
         </ul>
-        <form class="navbar-form navbar-left" action="">
-          <div class="form-group">
-            <input type="text" class="form-control" style="width: 450px;" placeholder="Search" name="search">
-          </div>
-          <button class="btn btn-default" style="display:inline" type="submit" >
-              <i class="glyphicon glyphicon-search"></i>
-          </button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          {% if user.is_authenticated %}
-          <li><p style="font-size: 20px; color:aquamarine;padding-top: 10px;padding-right:90px;">Hello, {{ user.username }}.</p></li>
-          {% load static %}
-          <li><a href="{% url 'users:personal' %}" style="color: rgb(226, 141, 43); text-decoration: underline">Go to my space</a></li>
-          <li><a href="{% url 'users:logout' %}" style="color:rgb(241, 126, 222);text-decoration: underline">Log out</a></li>
-          {% else %}
-          <li><a href="{% url 'users:register' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Sign Up</a></li>
-          &nbsp;&nbsp;
-          <li><a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Log in</a></li>
-        </ul>
-        {% endif %}
-        </ul>
+      </li>
+        <li><a href="#">Popular dishes</a></li>
+        <li><a href="#">Announcement</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" action="">
+      <div class="form-group">
+        <input type="text" class="form-control" style="width: 450px;" placeholder="Search" name="search">
       </div>
-    </nav>
-    {% block content %}
-    {% endblock content %}
-    <div class="footer">
-        <p>Footer</p>
+      <button class="btn btn-default" style="display:inline" type="submit" >
+          <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      {% if user.is_authenticated %}
+      <li><p style="font-size: 20px; color:aquamarine;padding-top: 0;padding-right:10px;">Hello, {{ user.username }}.</p></li>
+      <li><a href="{% url 'users:personal' %}" style="color: rgb(226, 141, 43); text-decoration: underline">Go to my space</a></li>
+      <li><a href="{% url 'users:logout' %}" style="color:rgb(241, 126, 222);text-decoration: underline">Log out</a></li>
+      {% else %}
+      <li><a href="{% url 'users:register' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Sign Up</a></li>
+      &nbsp;&nbsp;
+      <li><a href="{% url 'users:login' %}" style="color:white;"><span class="glyphicon glyphicon-user" style="color:white;"></span> Log in</a></li>
+    </ul>
+      {% endif %}
     </div>
-  </body>
-</html>
+</nav>
+{% endblock %}
+{% block css %}
+<style>
+
+</style>
+{% endblock %}

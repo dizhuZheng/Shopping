@@ -1,12 +1,11 @@
-{% extends 'recipes/nav.html' %}
-{% load bootstrap4 %}
+{% extends 'recipes/layout.html' %}
 {% load staticfiles %}
-{% block title %}
-  <h1 style="text-align: center">Welcome to My Recipe</h1>
-{% endblock %}
+{% load bootstrap4 %}
 {% block content %}
+<h1 style="text-align: center">Welcome to My Recipes</h1>
+{% include 'recipes/nav.html' %}
 <div id="slidershow" class="carousel slide" data-ride="carousel" data-interval = 3000 data-pause = "hover" data-wrap="true"
-  style="margin-top: -2rem; width: 70%;height: 80%; margin-left:auto; margin-right:auto;" style="display: block">
+  style="margin-top: -2rem; width: 70%; height: 70%; margin-left:auto; margin-right:auto;" style="display: block">
     <!-- sequence for pictures -->
     <ol class="carousel-indicators">
       <li class="active" data-target="#slidershow" data-slide-to="0" ></li>
@@ -16,16 +15,16 @@
     </ol>
     <div class="carousel-inner">
     <div class="item active">
-      <a href="##"><img src='{% static "images/1.jpg" %}' alt=""/></a>
+      <img src="{% static 'images/1.jpg' %}"/>
     </div>
     <div class="item">
-      <a href="##"><img src="{% static 'images/2.jpg' %}" alt=""/></a>
+      <img src="{% static 'images/2.jpg' %}"/>
     </div>
     <div class="item">
-      <a href="##"><img src="{% static 'images/3.jpg' %}" alt=""/></a>
+      <img src="{% static 'images/3.jpg' %}"/>
     </div>
     <div class="item">
-      <a href="##"><img src="{% static 'images/4.jpg' %}" alt=""/></a>
+      <img src="{% static 'images/4.jpg' %}"/>
     </div>
     <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev" >
     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -34,4 +33,4 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
 </div>
-{% endblock content %}
+{% endblock %}

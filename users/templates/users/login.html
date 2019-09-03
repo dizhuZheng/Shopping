@@ -1,7 +1,8 @@
-{% extends "recipes/nav.html" %}
+{% extends 'recipes/layout.html' %}
 {% load bootstrap4 %}
 {% block content %}
 <div>
+  {% include 'recipes/nav.html' %}
   {% if form.errors %}
   <div>Your username and password didn't match. Please try again.</div>
   {% endif %}
@@ -18,4 +19,4 @@
   </form>
   <div style="margin-left:80px; padding-top:0;"><a href="{% url 'users:password_reset_form' %}">Forgot password ?</a></div>
 </div>
-{% endblock content %}
+{% endblock %}
