@@ -4,5 +4,4 @@ from .models import Dish
 class DishForm(forms.ModelForm):
     class Meta:
         model = Dish
-        fields = ['text']
-        labels = {'text':''}
+        fields = ['name', 'owner', 'rating', 'difficulty']

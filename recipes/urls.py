@@ -6,6 +6,5 @@ from django.conf import settings
 urlpatterns = [
     #Home page
     url(r'^$', index, name='index'),
-    url(r'^categories/$', categories, name='categories'),
-    # url(r'^authors/$')
+    url(r'^categories/(?P<pk>\d+)$', categories, name='categories'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

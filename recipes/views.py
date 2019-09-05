@@ -16,10 +16,13 @@ def index(request):
 
 
 def categories(request):
-    """show all dishes"""
-    # dishes = Dish.objects.all()
-    # context = {'dishes': dishes}
-    return render(request, 'recipes/categories.html')
+    """show all categories"""
+    categories = Category.objects.all()
+    return render(request, 'recipes/categories.html', {'category': category})
+
+def category(request, pk):
+    category = Category.objects.get(pk=pk)
+    return render(request, 'recipes/category.html', {'category': category})
 
 
 @login_required
