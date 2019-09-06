@@ -1,10 +1,8 @@
 from django.conf.urls import url
-from .views import index, categories, dish, new_dish
-from django.conf.urls.static import static
+from .views import index, categories, dish
 from django.conf import settings
 
 urlpatterns = [
-    #Home page
     url(r'^$', index, name='index'),
-    url(r'^categories/(?P<pk>\d+)$', categories, name='categories'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^categories/$', categories, name='categories'),
+]

@@ -18,11 +18,7 @@ def index(request):
 def categories(request):
     """show all categories"""
     categories = Category.objects.all()
-    return render(request, 'recipes/categories.html', {'category': category})
-
-def category(request, pk):
-    category = Category.objects.get(pk=pk)
-    return render(request, 'recipes/category.html', {'category': category})
+    return render(request, 'recipes/categories.html', {'categories': categories})
 
 
 @login_required
@@ -40,21 +36,21 @@ def dish(request, dish_id):
     return render(request, 'recipes/dish.html', content)
 
 
-@login_required
-def new_dish(request):
-    """add a new dish"""
-    if request.method != 'POST':
-        #no data submitted, create a blank form
-        form = DishForm()
+# @login_required
+# def new_dish(request):
+#     """add a new dish"""
+#     if request.method != 'POST':
+#         #no data submitted, create a blank form
+#         form = DishForm()
 
-    else:
-        #POST data submitted, process data
-        form = DishForm(request.POST)
-        if form.is_valid():
-            new_dish = form.save(commit=False)
-            new_dish.owner = request.user
-            new_dish.save()
-            return HttpResponseRedirect(reverse('recipes:dishes'))
+#     else:
+#         #POST data submitted, process data
+#         form = DishForm(request.POST)
+#         if form.is_valid():
+#             new_dish = form.save(commit=False)
+#             new_dish.owner = request.user
+#             new_dish.save()
+#             return HttpResponseRedirect(reverse('recipes:dishes'))
 
-    context = {'form': form}
-    return render(request, 'recipes/new_dish.html', context)
+#     context = {'form': form}
+#     return render(request, 'recipes/new_dish.html', context)

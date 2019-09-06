@@ -1,56 +1,42 @@
 {% extends 'recipes/layout.html' %}
+{% load static %}
 {% block content %}
 {% include 'recipes/nav.html' %}
 <h1 style="text-align: center">Categories</h1>
-{% load static %}
-<div class="flex-container">
-    <div class="flex-item">
-        <img src="{% static "images/ivan-timov-2L8VzgYikXE-unsplash.jpg" %}" alt="breakfast">
-        <p>Breakfast</p>
+    <div class="flex-container">
+        {% for c in categories %}
+          <div class="flex-item">
+            <img src="../../static/recipes/{{c.pic_path}} " alt={{ c.name }} />
+          <p>{{ c.name }}</p>
+          </div>
+        {% endfor %}
     </div>
-    <div class="flex-item">
-        <img src="{% static "images/davide-cantelli-jpkfc5_d-DI-unsplash (1).jpg" %}" alt="lunch">
-        <p>Lunch</p>
-    </div>
-    <div class="flex-item">
-        <img src="{% static "images/raphael-nogueira-63mHpYEyjCA-unsplash (2).jpg" %}" alt="supper">
-        <p>Supper</p>
-    </div>
-    <div class="flex-item">
-        <img src="{% static "images/brooke-lark-HjWzkqW1dgI-unsplash (1).jpg" %}" alt="drinks">
-        <p>Drinks</p>
-    </div>
-    <div class="flex-item">
-        <img src="{% static "images/soup.jpg" %}" alt="seafood">
-        <p>Seafood</p>
-    </div>
-    <div class="flex-item">
-        <img src="{% static "images/anita-peeples-KMtq9dy-9Vc-unsplash (1).jpg" %}" alt="snacks">
-        <p>Snacks</p>
-    </div>
-    <div class="flex-item">
-        <img src="{% static "images/megan-hodges-xMh_ww8HN_Q-unsplash (1).jpg" %}" alt="vegatables">
-        <p>Vegatables</p>
-    </div>
-    <div class="flex-item">
-        <img src="{% static "images/emiliano-vittoriosi-OFismyezPnY-unsplash (1).jpg" %}" alt="meat">
-        <p>Meat</p>
-    </div>
-    <div class="flex-item" id="last">
-            <img src="{% static "images/taylor-kiser-6RJct18G_3I-unsplash (1).jpg" %}" alt="soup">
-            <p>Soup or Noodles</p>
-    </div>
-    <div class="flex-item" id="last">
-            <img src="{% static "images/dan-gold-E6HjQaB7UEA-unsplash.jpg" %}" alt="fast food">
-            <p>Fast Food</p>
-    </div>
-    <div class="flex-item" id="last">
-            <img src="{% static "images/toni-cuenca-CvFARq2qu8Y-unsplash.jpg" %}" alt="seasonal">
-            <p>Seasonal</p>
-    </div>
-    <div class="flex-item" id="last">
-            <img src="{% static "images/tr-davis--TDMdKfKcTg-unsplash.jpg" %}" alt="world">
-            <p>World Cuisine</p>
-    </div>
-</div>
+
 {% endblock content %}
+{% block css %}
+<style>
+  .flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  .flex-container .flex-item{
+    margin-bottom: 10px;
+  }
+  .flex-container .flex-item img{
+    width: 330px;
+    height:300px;
+  }
+  .flex-container .flex-item p{
+    width:auto;
+    height:30px;
+    text-align: center;
+    background-color:black;
+    color:aliceblue;
+    padding: 5px;
+  }
+  #last{
+    margin-bottom: 40px;
+  }
+</style>
+{% endblock %}

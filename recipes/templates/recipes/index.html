@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load bootstrap4 %}
 {% block content %}
-<h1 style="text-align: center">Welcome to My Recipes</h1>
+<h1 style="text-align: center">{{ logo }}</h1>
 {% include 'recipes/nav.html' %}
 <div id="slidershow" class="carousel slide" data-ride="carousel" data-interval = 3000 data-pause = "hover" data-wrap="true"
   style="margin-top: -2rem; width: 70%; height: 70%; margin-left:auto; margin-right:auto;" style="display: block">
@@ -15,16 +15,16 @@
     </ol>
     <div class="carousel-inner">
     <div class="item active">
-      <img src="{% static 'images/1.jpg' %}"/>
+        <img src="{% static 'recipes/1.jpg' %}"/>
     </div>
     <div class="item">
-      <img src="{% static 'images/2.jpg' %}"/>
+      <img src="{% static 'recipes/2.jpg' %}"/>
     </div>
     <div class="item">
-      <img src="{% static 'images/3.jpg' %}"/>
+      <img src="{% static 'recipes/3.jpg' %}"/>
     </div>
     <div class="item">
-      <img src="{% static 'images/4.jpg' %}"/>
+      <img src="{% static 'recipes/4.jpg' %}"/>
     </div>
     <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev" >
     <span class="glyphicon glyphicon-chevron-left"></span>
