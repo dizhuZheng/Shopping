@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'bootstrap4',
+    # 'django-widget-tweaks',
     #my apps
     'recipes',
     'allauth',
+    'myaccount',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
@@ -145,6 +147,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+LOGIN_REDIRECT_URL = '/accounts/profile/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

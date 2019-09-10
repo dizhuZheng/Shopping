@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 def profile(request):
     """user's profile"""
     user = request.user
-    return render(request, 'myaccount/profile.html', {'user':user})
+    return render(request, 'account/profile.html', {'user':user})
 
 @login_required
 def profile_update(request):
@@ -25,4 +25,4 @@ def profile_update(request):
             login(request, authenticated_user)
             return HttpResponseRedirect(reverse('myaccount:profile'))
     context = {'form': form}
-    return render(request, 'myaccount/profile_update.html', context)
+    return render(request, 'account/profile_update.html', context)
