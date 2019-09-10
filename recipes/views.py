@@ -5,6 +5,7 @@ from .forms import DishForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
 
 # Create your views here.
 logo = 'Welcome to my Recipe'
@@ -14,11 +15,22 @@ def index(request):
     """The home page for recipes"""
     return render(request, 'recipes/index.html', {'logo': logo})
 
-
 def categories(request):
     """show all categories"""
     categories = Category.objects.all()
-    return render(request, 'recipes/categories.html', {'categories': categories})
+    paginator = Paginator(categories, 10)
+
+    if request.method == "GET":
+        page = request.GET.get('page')
+        try:
+            cats = paginator.page(page)
+        except PageNotAnInteger:
+            cats = paginator.page(1)
+        except InvalidPage:
+            return HttpResponse('Can\'t find page')
+        except EmptyPage:
+            cats = paginator.page(paginator.num_pages)
+    return render(request, 'recipes/categories.html', {'cats': cats})
 
 
 @login_required
