@@ -18,7 +18,7 @@ def index(request):
 def categories(request):
     """show all categories"""
     categories = Category.objects.all()
-    paginator = Paginator(categories, 8)
+    paginator = Paginator(categories, 6)
 
     if request.method == "GET":
         page = request.GET.get('page')

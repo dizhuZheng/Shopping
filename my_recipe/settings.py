@@ -38,11 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'bootstrap4',
     #my apps
     'recipes',
-    'users'
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 ]
+
+AUTHENTICATION_BACKENDS = (
+      'django.contrib.auth.backends.ModelBackend',
+      # allauth specific authentication methods, such as login by e-mail
+      'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 2
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # 当用户登录时，既可以使用用户名也可以使用email
+ACCOUNT_EMAIL_REQUIRED = True       # 注册时必须填写email
 
 BOOTSTRAP4 = {
     'include_jquery': True,
@@ -135,3 +149,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+EMAIL_HOST = 'smtp.qq.com'  # 这里使用QQ的smtp服务
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'dizhu210@gmail.com'   # 你的 QQ 账号和授权码
+EMAIL_HOST_PASSWORD = 'dizhuzheng'
+EMAIL_USE_TLS = True  # 这里必须是 True，否则发送不成功
+EMAIL_FROM = 'dizhu210@gmail.com'  # 发件人邮箱
+DEFAULT_FROM_EMAIL = 'dizhu210@gmail.com'    # 默认发件人邮箱
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+SOCIALACCOUNT_AUTO_SIGNUP = True
