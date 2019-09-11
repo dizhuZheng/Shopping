@@ -13,7 +13,7 @@ sentence = 'picture uploaded !'
 
 def index(request):
     """The home page for recipes"""
-    return render(request, 'recipes/index.html', {'logo': logo})
+    return render(request, 'recipes/home.html', {'logo': logo})
 
 def categories(request):
     """show all categories"""
