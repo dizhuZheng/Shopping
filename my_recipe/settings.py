@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'social_django',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -56,7 +57,7 @@ AUTHENTICATION_BACKENDS = (
       'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-SITE_ID = 2
+SITE_ID = 1
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # 当用户登录时，既可以使用用户名也可以使用email
 ACCOUNT_EMAIL_REQUIRED = True       # 注册时必须填写email
 
@@ -72,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'my_recipe.urls'
@@ -89,6 +91,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -96,6 +100,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'my_recipe.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -147,7 +158,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
-LOGIN_REDIRECT_URL = '/accounts/profile/'
+LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_ON_GET = True
 
 STATICFILES_DIRS = [
@@ -163,3 +174,8 @@ EMAIL_FROM = 'dizhu210@gmail.com'  # 发件人邮箱
 DEFAULT_FROM_EMAIL = 'dizhu210@gmail.com'    # 默认发件人邮箱
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 SOCIALACCOUNT_AUTO_SIGNUP = True
+
+SOCIAL_AUTH_GITHUB_KEY = '71e62ce5a68ed2d0785b'
+SOCIAL_AUTH_GITHUB_SECRET = '3abc77a2435f9aff7e2474f7eb1af95d37ec0b58'
+
+redirect_uri = 'http://localhost:8000/oauth/complete/github'

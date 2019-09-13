@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include((recipes_url,'recipes'), namespace='recipes')),
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('myaccount.urls')),
+    path('oauth/', include('social_django.urls', namespace='social')),
 ]
