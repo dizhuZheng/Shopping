@@ -11,6 +11,8 @@ class Category(models.Model):
 class Dish(models.Model):
     """A dish the user is getting"""
     name = models.CharField(max_length=200)
+    category = models.ForeignKey(Category, related_name='category_dish', on_delete=models.CASCADE)
+    pic_path = models.CharField(max_length=200)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField()
     difficulty = models.IntegerField()
