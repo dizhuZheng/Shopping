@@ -32,6 +32,8 @@ def categories(request):
             cats = paginator.page(paginator.num_pages)
     return render(request, 'recipes/categories.html', {'cats': cats})
 
+def breakfast(request):
+    return render(request, 'recipes/breakfast.html')
 
 @login_required
 def dish(request, dish_id):
