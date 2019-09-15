@@ -1,9 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import DishForm
 from django.urls import reverse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_is_entry_author
 from django.utils import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
 
@@ -35,7 +34,7 @@ def categories(request):
 def breakfast(request):
     return render(request, 'recipes/breakfast.html')
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def dish(request, dish_id):
     """show a single topic"""
     dish = Dish.objects.get(id=dish_id)
@@ -50,21 +49,36 @@ def dish(request, dish_id):
     return render(request, 'recipes/dish.html', content)
 
 
-# @login_required
-# def new_dish(request):
-#     """add a new dish"""
-#     if request.method != 'POST':
-#         #no data submitted, create a blank form
-#         form = DishForm()
+@login_required
+def new_dish(request):
+    """add a new dish"""
+    if request.method != 'POST':
+        #no data submitted, create a blank form
+        form = DishForm()
 
-#     else:
-#         #POST data submitted, process data
-#         form = DishForm(request.POST)
-#         if form.is_valid():
-#             new_dish = form.save(commit=False)
-#             new_dish.owner = request.user
-#             new_dish.save()
-#             return HttpResponseRedirect(reverse('recipes:dishes'))
+    else:
+        #POST data submitted, process data
+        form = DishForm(request.POST)
+        if form.is_valid():
+            new_dish = form.save(commit=False)
+            new_dish.owner = request.user
+            new_dish.save()
+            return redirect(reverse('recipes:dishes'))
 
-#     context = {'form': form}
-#     return render(request, 'recipes/new_dish.html', context)
+    context = {'form': form}
+    return render(request, 'recipes/new_dish.html', context)
+
+
+@login_required
+@user_is_entry_author
+def edit(request, entry_id):
+    entry = get_object_or_404(Entry, pk = entry_id)
+    if request.method =='POST':
+        form = EntryForm(request.POST)
+        if form.is_valid():
+            entry = form.save()
+            messages.success(request, 'Entry was successfully edited!')
+            return redirect(reverse('recipes:categories'))   #????
+    else:
+        form = EntryForm()
+        return render(request, 'recipes/.html', context, {'form': form})

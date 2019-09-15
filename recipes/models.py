@@ -12,6 +12,21 @@ class Dish(models.Model):
     """A dish the user is getting"""
     name = models.CharField(max_length=200)
     category = models.ForeignKey(Category, related_name='category_dish', on_delete=models.CASCADE)
+    FLAVOR_CHOICES = (
+        ('SP', 'Spicy'),
+        ('ST', 'Strong'),
+        ('DY', 'Dry'),
+        ('JU', 'Juicy'),
+        ('ZT', 'Zesty'),
+        ('RI', 'Rich'),
+        ('PL', 'Plain'),
+        ('SW', 'Sweet'),
+        ('SA', 'Salty'),
+        ('SO', 'Sour'),
+        ('TR', 'Treacly'),
+        ('BT', 'Bitter')
+    )
+    flavor = models.CharField(max_length=250, choices=FLAVOR_CHOICES)
     pic_path = models.CharField(max_length=200)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField()
