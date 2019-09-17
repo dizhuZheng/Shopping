@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import DishForm
 from django.urls import reverse
-from django.contrib.auth.decorators import login_required, user_is_entry_author
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
 
@@ -70,7 +70,6 @@ def new_dish(request):
 
 
 @login_required
-@user_is_entry_author
 def edit(request, entry_id):
     entry = get_object_or_404(Entry, pk = entry_id)
     if request.method =='POST':
