@@ -4,14 +4,7 @@
 {% block content %}
 <h1 style="text-align: center">{{ logo }}</h1>
 {% include 'recipes/nav.html' %}
-<div id="slidershow" class="carousel slide" data-ride="carousel" data-interval = 3000 data-pause = "hover" data-wrap="true"
-  style="margin-top: -2rem; width: 70%; height: 70%; margin-left:auto; margin-right:auto;" style="display: block">
-    <ol class="carousel-indicators">
-      <li class="active" data-target="#slidershow" data-slide-to="0" ></li>
-      <li data-target="#slidershow" data-slide-to="1"></li>
-      <li data-target="#slidershow" data-slide-to="2"></li>
-      <li data-target="#slidershow" data-slide-to="3"></li>
-    </ol>
+<div id="slidershow" class="carousel slide" data-ride="carousel" data-interval = 3000 data-pause = "hover" data-wrap="true">
     <div class="carousel-inner">
         <div class="item active">
           <img src="{% static 'recipes/1.jpg' %}"/>
@@ -29,4 +22,17 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
 </div>
+{% endblock %}
+{% block css %}
+<style>
+  div[id="slidershow"]{
+    margin-top: -2rem;
+    width: 70%;
+    height: 70%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 198px;
+    display: block;
+  }
+</style>
 {% endblock %}
