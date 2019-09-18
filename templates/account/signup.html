@@ -2,8 +2,8 @@
 {% load bootstrap4 %}
 {% block content %}
 {% include 'recipes/nav.html' %}
-<div>
-  <p style="margin-left: 80px;">Already have an account? Then please <a href="/accounts/login/">Log In</a></p>
+<div class="a">
+  <p>Already have an account? Then please <a href="/accounts/login/">Log In</a></p>
   <form method="post" action="/accounts/signup/" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
