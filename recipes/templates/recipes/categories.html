@@ -3,28 +3,37 @@
 {% block content %}
 {% include 'recipes/nav.html' %}
 <h1 style="text-align: center">Categories</h1>
-    <div class="flex-container">
-        {% for c in cats %}
-          <div class="flex-item">
-            <img src="../../static/recipes/{{c.pic_path}} " alt={{ c.name }} />
-          <p>{{ c.name }}</p>
-          </div>
-        {% endfor %}
-    </div>
-    <div id="pages" class="text-center" >
-        <nav>
-          <ul class="pagination">
-            <li class="step-links">
-            {% if cats.has_previous %}
-            <a class='active page' href="?page={{ cats.previous_page_number }}">Last Page</a>
-            {% endif %}
-           <span class="current page">Page {{ cats.number }} of {{ cats.paginator.num_pages }}</span>
-            {% if cats.has_next %}
-              <a class='active page' href="?page={{ cats.next_page_number }}">Next Page</a>
-            {% endif %}
-            </li>
-          </ul>
-        </nav>
+  <div class="flex-container">
+    {% for c in cats %}
+      <div class="flex-item">
+        <img src="../../static/recipes/{{c.pic_path}} " alt={{ c.name }} />
+      <p>{{ c.name }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <div id="pages" class="text-center" >
+      <nav>
+        <ul class="pagination">
+          <li class="step-links">
+          {% if cats.has_previous %}
+          <a class='active page' href="?page={{ cats.previous_page_number }}">Last Page</a>
+          {% endif %}
+          <span class="current page">Page {{ cats.number }} of {{ cats.paginator.num_pages }}</span>
+          {% if cats.has_next %}
+            <a class='active page' href="?page={{ cats.next_page_number }}">Next Page</a>
+          {% endif %}
+          </li>
+        </ul>
+      </nav>
+      <div class="footer">
+        <ul class="a">
+          <li>About</li>
+          <li>Contact us</li>
+          <li>Privacy Policy</li>
+          <li>Follow us</li>
+          <li>Help</li>
+        </ul>
+      </div>
 {% endblock content %}
 {% block css %}
 <style>
