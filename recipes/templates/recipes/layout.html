@@ -23,9 +23,9 @@
           padding-top:10px;
         }
         .footer {
-          position: fixed;
-          left: 0;
-          bottom: 0;
+          position: absolute;
+          margin-left: 0;
+          margin-bottom: 0;
           width: 100%;
           height:30%;
           background-color: rgb(31, 30, 30);
@@ -40,15 +40,6 @@
   </head>
   <body>
     {% block content %}{% endblock %}
-    <div class="footer">
-      <ul class="a">
-        <li>About</li>
-        <li>Contact us</li>
-        <li>Privacy Policy</li>
-        <li>Follow us</li>
-        <li>Help</li>
-      </ul>
-    </div>
     {% block css %}{% endblock %}
     {% block js %}{% endblock %}
   </body>
