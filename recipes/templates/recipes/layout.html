@@ -28,6 +28,12 @@
       ul.a {
         list-style-type: none;
       }
+      ul.a > li {
+        display:inline;
+      }
+      ul.a > li:not(:last-child)::after{
+        content:"|"
+      }
   </style>
 </head>
 <body>

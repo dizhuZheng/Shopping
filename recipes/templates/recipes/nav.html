@@ -29,17 +29,18 @@
     <ul class="nav navbar-nav navbar-right">
       {% if user.is_authenticated %}
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle" id="userMenu" data-toggle="dropdown"
-        style="font-size:20px;color:orangered" aria-expanded="false">
-          <i class="fa fa-user-circle-o" style="font-size:45px;color:orange"></i>
-          {{ user.username }}
-          <span class="caret"></span>
-        </a>
+        <span id="user" data-toggle="dropdown"
+        style="font-size:20px;color:orangered; text-decoration: none" aria-expanded="false">
+            <i class="fa fa-user-circle-o" style="font-size:45px;color:orange"></i>
+            {{ user.username }}
+            <span class="caret"></span>
+        </span>
         <ul class="dropdown-menu" role='menu' aria-labelledby="userMenu">
+            <li><a class="dropdown-item" href="/accounts/profile/" tabindex="-1">Publish Recipe</a></li>
           <li><a class="dropdown-item" href="/accounts/profile/" tabindex="-1">My Profile</a></li>
           <li><a class="dropdown-item" href="/accounts/password/reset/" tabindex="-1">Change password</a></li>
-          <li><a class="dropdown-item" href="/accounts/social/connections/" tabindex="-1">Manage socail accounts</a></li>
-          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="" tabindex="-1">Personal Space</a></li>
+          <li class="divider"></li>
           <li><a class="dropdown-item" href="/accounts/logout/" tabindex="-1">Log out</a></li>
         </ul>
       </div>
@@ -60,7 +61,11 @@
 {% endblock %}
 {% block css %}
 <style>
-  #userMenu{
+  #user{
+    padding-right:20px;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
     padding-right:20px;
   }
 </style>
