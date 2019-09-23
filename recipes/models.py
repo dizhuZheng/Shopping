@@ -2,55 +2,32 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
-    pic_path = models.CharField(max_length=200)
+    name = models.CharField(max_length=50)
+    pic_path = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
-class Dish(models.Model):
-    """A dish the user is getting"""
-    name = models.CharField(max_length=200)
-    category = models.ForeignKey(Category, related_name='category_dish', on_delete=models.CASCADE)
-    FLAVOR_CHOICES = (
-        ('SP', 'Spicy'),
-        ('ST', 'Strong'),
-        ('DY', 'Dry'),
-        ('JU', 'Juicy'),
-        ('ZT', 'Zesty'),
-        ('RI', 'Rich'),
-        ('PL', 'Plain'),
-        ('SW', 'Sweet'),
-        ('SA', 'Salty'),
-        ('SO', 'Sour'),
-        ('TR', 'Treacly'),
-        ('BT', 'Bitter')
-    )
-    flavor = models.CharField(max_length=250, choices=FLAVOR_CHOICES)
-    pic_path = models.CharField(max_length=200)
+class Flavor(models.Model):
+    """flavor choices"""
+    name = models.CharField(primary_key=True, max_length=100)
+
+class Recipe(models.Model):
+    """something specific learned about a topic"""
+    name = models.CharField(max_length=80)
+    category = models.ForeignKey(Category, related_name='recipe_category', on_delete=models.SET_NULL, null=True)
+    pics = models.ImageField(null=True, blank=True, upload_to='dish_pics')
+    flavor = models.ManyToManyField(Flavor, related_name='recipe_flavor',blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField()
     difficulty = models.IntegerField()
-
-    def __str__(self):
-        """return a string repre of the model."""
-        return '%s,% s,%d,%d' % (self.name, self.owner, self.rating, self.difficulty)
-
-
-class Entry(models.Model):
-    """something specific learned about a topic"""
-    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
-    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+    update_time = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = 'entries'
+        verbose_name_plural = 'recipes'
+        ordering=['-date_added']
 
     def __str__(self):
         """return a string representation of the model"""
-        return self.text[:50] + "..."
-
-
-class IMG(models.Model):
-    """users can add pic to each dish"""
-    img = models.ImageField(upload_to='img')
-    name = models.CharField(max_length=20)
+        return "%s, %s, %d" % (self.name, self.owner, self.date_added)

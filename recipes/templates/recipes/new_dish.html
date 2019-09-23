@@ -1,38 +1,9 @@
 {% extends 'recipes/base.html' %}
-
 {% block content %}
-    <form method="POST">
-      {% csrf_token %}
-      Dish's name: <input type="text" name="DishName">
-      <input type="submit" value="Submit">
-      <br><br>
-        <div class="a">
-        <label for="comment">Materials</label>
-        <div class="form-groupc">
-          <textarea rows="15" cols="50" id="comment" name="text"></textarea>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-info">Submit</button>
-      </div>
-    </form>
-  <div class="b">
-    <form method="POST">
-      {% csrf_token %}
-      <label for="comment">Steps</label>
-      <div class="form-groupc">
-        <textarea rows="15" cols="50" id="comment" name="text"></textarea>
-      </div>
-      <br>
-      <button type="submit" class="btn btn-info">Submit</button>
-    </form>
-  </div>
-  <div class="c">
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <input type="file" name="img">
-      <br>
-      <button type="submit" class="btn btn-info">Upload</button>
-    </form>
-    <p>{{ sentence }}</p>
-  </div>
+  <p>Add a new entry:</p>
+  <form action="{% url 'recipes:new_dish' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>add entry</button>
+  </form>
 {% endblock content %}

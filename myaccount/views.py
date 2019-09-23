@@ -12,6 +12,12 @@ def profile(request):
     return render(request, 'myaccount/profile.html', {'user':user})
 
 @login_required
+def personal_space(request):
+    """user's profile"""
+    user = request.user
+    return render(request, 'myaccount/personal_space.html', {'user':user})
+
+@login_required
 def profile_update(request):
     """ update user's profile """
     if request.method != 'POST':

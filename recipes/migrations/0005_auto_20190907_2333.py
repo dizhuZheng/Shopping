@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='dish',
             name='category',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='recipes.Category'),
+            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='recipe.Category'),
             preserve_default=False,
         ),
     ]

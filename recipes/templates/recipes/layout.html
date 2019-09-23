@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %} My recipes</title>
+    <title>{% block title %}{% endblock %} yummy recipes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="luck.ico" href="recipes/static/images/luck.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -26,13 +26,17 @@
         padding-bottom: 20px;
       }
       ul.a {
+        padding:30px;
         list-style-type: none;
       }
       ul.a > li {
         display:inline;
+        font-family: Verdana;
+        font-size: 10px;
+        color:grey;
       }
       ul.a > li:not(:last-child)::after{
-        content:"|"
+        content:"  |  "
       }
   </style>
 </head>

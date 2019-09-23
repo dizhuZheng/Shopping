@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'social_django',
+    'django_comments',
 ]
 
 AUTHENTICATION_BACKENDS = (

@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-from .forms import DishForm
+from .forms import RecipeForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
 
 # Create your views here.
-logo = 'Welcome to my Recipe'
+logo = 'Welcome to Yummy Recipe'
 sentence = 'picture uploaded !'
 
 def index(request):
@@ -37,7 +37,7 @@ def breakfast(request):
 @login_required(login_url='/accounts/login/')
 def dish(request, dish_id):
     """show a single topic"""
-    dish = Dish.objects.get(id=dish_id)
+    dish = Recipe.objects.get(id=dish_id)
     content = {'dish':dish}
     if request.method == 'POST':
         new_img = IMG(
@@ -54,11 +54,11 @@ def new_dish(request):
     """add a new dish"""
     if request.method != 'POST':
         #no data submitted, create a blank form
-        form = DishForm()
+        form = RecipeForm()
 
     else:
         #POST data submitted, process data
-        form = DishForm(request.POST)
+        form = RecipeForm(request.POST)
         if form.is_valid():
             new_dish = form.save(commit=False)
             new_dish.owner = request.user
@@ -73,11 +73,11 @@ def new_dish(request):
 def edit(request, entry_id):
     entry = get_object_or_404(Entry, pk = entry_id)
     if request.method =='POST':
-        form = EntryForm(request.POST)
+        form = RecipeForm(request.POST)
         if form.is_valid():
             entry = form.save()
             messages.success(request, 'Entry was successfully edited!')
             return redirect(reverse('recipes:categories'))   #????
     else:
-        form = EntryForm()
+        form = RecipeForm()
         return render(request, 'recipes/.html', context, {'form': form})
