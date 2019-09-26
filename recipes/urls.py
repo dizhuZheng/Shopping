@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from .views import index, categories, new_dish, breakfast
 from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', index, name='index'),
@@ -9,4 +10,4 @@ urlpatterns = [
     # url(r'^categories/breakfast/(?P<slug>[-\w]+)-(?P<pk>\d+)/$', breakfast_details, name='breakfast_details'),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^new_dish/$', new_dish, name='new_dish'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

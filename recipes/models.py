@@ -21,19 +21,26 @@ class Flavor(models.Model):
     def __str__(self):
         return self.name
 
-class Ingredient(models.Model):
+class Common(models.Model):
     name = models.CharField(max_length=200)
     amount = models.SmallIntegerField()
+    UNIT_CHOICE = (
+        ('g','grams'),
+        ('ml','ml')
+    )
+    unit = models.CharField(max_length=2, choices=UNIT_CHOICE, default='g')
+
+    class Meta:
+        abstract = True
 
     def __str__(self):
-        return '%s,%d' % (name, amount)
+        return '%s,%d,%s' % (self.name, self.amount,self.unit)
 
-class Sauce(models.Model):
-    name = models.CharField(max_length=200)
-    amount = models.SmallIntegerField()
+class Sauce(Common):
+    pass
 
-    def __str__(self):
-        return '%s,%d' % (name, amount)
+class Ingredient(Common):
+    pass
 
 class Recipe(models.Model):
     title = models.CharField(max_length=100)
@@ -48,11 +55,11 @@ class Recipe(models.Model):
         (3, '3 people'),
         (4, 'More')
     )
-    people = models.IntegerField(max_length=2, choices=PEOPLE_CHOICES, default=1)
-    ingredient = models.ManyToManyField(Ingredient, help_text='such as; rice')
-    sauce = models.ManyToManyField(Ingredient, help_text='such as: slat')
-    cover_img = models.ImageField(default='')
+    people = models.IntegerField(choices=PEOPLE_CHOICES, default=1)
+    ingredient = models.ManyToManyField(Ingredient, related_name='recipe_ingredient', default='')
+    sauce = models.ManyToManyField(Sauce, related_name='recipe_sauce', default='')
+    cover_img = models.ImageField(default='media/smile.jpg')
     date_added = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return '%s,%d' % (name, amount)
+        return '%s,%s,%s' % (self.title, self.owner, self.date_added)
