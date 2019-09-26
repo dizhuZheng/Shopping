@@ -19,7 +19,7 @@ from recipes import urls as recipes_url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include((recipes_url,'recipes'), namespace='recipes')),
+    path('recipes/', include((recipes_url,'recipes'), namespace='recipes')),
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('myaccount.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),

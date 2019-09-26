@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'bootstrap4',
-    # 'django-widget-tweaks',
     #my apps
     'recipes',
     'allauth',
@@ -50,8 +49,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'social_django',
     'django_comments',
+    'crispy_forms'
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTHENTICATION_BACKENDS = (
       'django.contrib.auth.backends.ModelBackend',
       # allauth specific authentication methods, such as login by e-mail

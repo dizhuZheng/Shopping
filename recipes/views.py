@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-from .forms import RecipeForm
+# from .forms import DetailForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
+from django.views.decorators.cache import cache_page
+from django.views.generic import CreateView
 
 # Create your views here.
 logo = 'Welcome to Yummy Recipe'
@@ -53,11 +55,9 @@ def dish(request, dish_id):
 def new_dish(request):
     """add a new dish"""
     if request.method != 'POST':
-        #no data submitted, create a blank form
         form = RecipeForm()
 
     else:
-        #POST data submitted, process data
         form = RecipeForm(request.POST)
         if form.is_valid():
             new_dish = form.save(commit=False)

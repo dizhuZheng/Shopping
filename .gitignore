@@ -3,7 +3,7 @@
 db.sqlite3
 *.log
 *.pot
-__pycache__/
+*__pycache__/
 local_settings.py
 .env
 .DS_Store

@@ -1,13 +1,11 @@
-from django import forms
-from .models import Recipe
+# from django import forms
+# from .models import Detail
 
-class RecipeForm(forms.ModelForm):
-    class Meta:
-        model = Recipe
-        fields = '__all__'
-        widgets = {'text': forms.Textarea(attrs={'cols':80})}
-        error_messages = {
-            'name':{'requried': 'dish name can\'t be null '},
-            'ingredients':{'requried': 'ingredients can\'t be null '},
-            'directions':{'requried': 'directions can\'t be null '},
-        }
+# class DetailForm(forms.ModelForm):
+#     class Meta:
+#         model = Detail
+#         fields = '__all__'
+#         widgets = {'text': forms.Textarea(attrs={'cols':80})}
+#         error_messages = {
+#             'name':{'requried': 'please input name', 'invalid':'please ibput a valid name', 'max_length':'length has to be less than 200'},
+#         }

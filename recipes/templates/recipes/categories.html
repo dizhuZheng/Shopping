@@ -6,6 +6,7 @@
   <div class="flex-container">
     {% for c in cats %}
       <div class="flex-item">
+        <a href="{{ c.url }}">
         <img src="../../static/recipes/{{c.pic_path}} " alt={{ c.name }} />
       <p>{{ c.name }}</p>
       </div>

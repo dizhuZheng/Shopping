@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^categories/$', categories, name='categories'),
     url(r'^categories/breakfast/$', breakfast, name='breakfast'), #from db
+    # url(r'^categories/breakfast/(?P<slug>[-\w]+)-(?P<pk>\d+)/$', breakfast_details, name='breakfast_details'),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^new_dish/$', new_dish, name='new_dish'),
 ]
