@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-# from .forms import DetailForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -33,7 +32,7 @@ def categories(request):
             cats = paginator.page(paginator.num_pages)
     return render(request, 'recipes/categories.html', {'cats': cats})
 
-def breakfast(request):
+def sub_category(request, id):
     return render(request, 'recipes/breakfast.html')
 
 @login_required(login_url='/accounts/login/')

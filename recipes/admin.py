@@ -6,4 +6,12 @@ admin.site.register(Category)
 admin.site.register(Flavor)
 admin.site.register(Sauce)
 admin.site.register(Ingredient)
-admin.site.register(Recipe)
+
+@admin.register(Recipe)
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'owner', 'date_added')
+    fieldsets = (
+        (None, {'fields':('title','difficulty','rating','ingredient', 'sauce', 'flavor',)
+        }),
+    )
+    filter_vertical = ('flavor',)
